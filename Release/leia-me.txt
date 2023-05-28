@@ -1,0 +1,136 @@
+
+Labirinto do Dragão
+(C) Março/2010 por Fernando Aires Castello
+------------------------------------------
+
+"É quase um 'Campo Minado'... mas melhor"
+
+Está pronto mais um dos meus (mini-) jogos em C++, "Labirinto do Dragão". Assim
+como os outros, esse jogo ainda não tem gráficos 3D nem som. É apenas um jogo
+baseado em texto, ou seja, as interações com o jogador se dão através de uma
+interface textual. Apesar de parecer complicado no início, o mecanismo do jogo
+é extremamente simples e fácil.
+
+Como é o Labirinto do Dragão?
+
+Bom, o objetivo é muito claro e simples: você deve encontrar a flecha mágica que
+está escondida em algum lugar no labirinto, e possuindo esta, deve encontrar as
+proximidades da toca do dragão, para assim atirar a flecha nele e derrotá-lo.
+
+Detalhe: você não pode entrar na toca do dragão! Se você fizer isso, vira
+churrasco na mesma hora! Você deve atirar a flecha de longe, isto é, de uma
+sala adjacente qualquer. Se você errar o alvo, a flecha some e vai parar em
+qualquer outro lugar do labirinto, e você terá que encontrá-la denovo antes de
+enfrentar o dragão.
+
+Existem diveros objetos pelo jogo que ajudam ou atrapalham a sua busca:
+
+Os tesouros do dragão estão escondidos pelo labirinto, e acrescentam um bônus à
+sua pontuação caso você os encontre. Não há um número fixo de tesouros, e isto
+significa que não se sabe quantos tesouros estão escondidos (nem eu mesmo sei),
+e você pode acabar encontrando muitos tesouros contanto que você sobreviva
+procurando por todos eles.
+
+As armadilhas são fatais caso você caia acidentalmente em alguma, a não ser que
+você possua a corda mágica. No caso de você ter uma corda mágica e cair numa
+armadilha, o personagem automaticamente a usará para escapar. No entanto, a 
+corda desaparece depois de usada, e vai parar em algum outro lugar no labirinto.
+Então caso você queira ter outra chance de se salvar de outra armadilha, você
+terá de encontrar a corda novamente. Existem sempre 10 armadilhas em qualquer
+labirinto, e este número é fixo.
+
+A corda mágica é um objeto que te permite sair de uma armadilha, mas assim que
+você a usa, ela vai parar em algum outro lugar do labirinto, e você precisa
+encontrá-la novamente caso queira ter mais uma chance de escapar de outra
+armadilha. Existe somente uma corda.
+
+Há também um feiticeiro cruel escondido pelo labirinto, e caso você tenha a
+infelicidade de cruzar com ele, ele lançará um feitiço que vai te teleportar
+para uma sala qualquer do labirinto, e então ele também vai se teleportar para
+outro local, para te esperar novamente. Existe somente um feiticeiro.
+
+Outro objeto que vai te atrapalhar é o buraco-negro. Caso você seja sugado por
+um buraco-negro, vai parar em outro labirinto completamente diferente, perdendo
+a corda e a flecha, se você as possuir. Apenas os tesouros encontrados serão
+mantidos. Existe apenas um buraco-negro.
+
+Os objetos do jogo aparecem no labirinto em salas diferentes a cada partida,
+isto é, a cada vez que você jogar, os objetos estarão espalhados aleatoriamente,
+portanto um jogo nunca é igual a outro.
+
+Se você já jogou Campo Minado, então esse jogo vai parecer um tanto familiar.
+
+A idéia crucial é que você não consegue ver onde estão os objetos, mas apenas
+sentir a presença deles. O personagem indica na tela se está sentindo a presença
+de algum objeto em qualquer uma das salas adjacentes, e por sala adjacente
+entenda-se uma sala que esteja imediatamente ao norte, ou ao sul, ou a leste, ou
+a oeste, em relação à sala onde você está no momento. Por exemplo: se o
+personagem diz que está sentindo a presença de uma armadilha, você sabe que
+existe uma armadilha ao redor, mas não sabe exatamente em qual direção ela está.
+Ela pode estar imediatamente ao norte, sul, leste ou oeste. Neste caso o que
+você deve fazer? Você pode arriscar uma das direções, e rezar para que a
+armadilha não esteja naquela direção. Ou você pode tentar deduzir onde ela está,
+pois as armadilhas são fixas, elas não se movem. A não ser que você caia num
+buraco-negro, nesse caso o labirinto é totalmente diferente e tudo muda de
+lugar. Você também consegue detectar a toca do dragão, mas assim como os outros
+objetos, o personagem apenas indica a presença dele numa sala adjacente, e não
+a direção exata em que ele se encontra. Se você sentir a presença dele, tenha
+muito cuidado ao mover-se em alguma direção, pois você pode acidentalmente pisar
+no covil dele e despertá-lo do sono profundo. Nesse caso, uma longa e potente
+baforada de fogo te transformará instantaneamente em churrasco humano. Se você
+possuir a flecha mágica, é hora de arriscar um tiro certeiro! Ao detectar a
+presença do dragão, pressione ALT+A para se armar com o arco e flecha. Uma nova
+tela vai aparecer, perguntando em qual direção você deseja atirar. Escolha uma
+direção e reze para acertá-lo. Caso você erre o alvo, a flecha some, e vai
+parar em algum outro local, e o dragão continuará adormecido no mesmo lugar.
+Então você terá que encontrar a flecha novamente, e repetir todo o processo, até
+acertá-lo em cheio. Quando você finalmente derrotar o dragão, sua pontuação será
+calculada e você será o vencedor!
+
+A sua pontuação final somente é calculada caso você consiga derrotar o dragão do
+labirinto. Se você morrer, apenas a quantidade de movimentos e de tesouros
+encontrados aparecerão na tela de game over, mas a pontuação não será calculada.
+Se você vencer, a pontuação é calculada com base na quantidade de movimentos que
+você realizou antes de matar o dragão, e os tesouros que você encontrou são
+adicionados como bônus. Em suma: quanto MENOS movimentos você fizer até matar o
+dragão, MAIOR será a sua pontuação; e quanto MAIS tesouros você encontrar, MAIOR
+será o bônus acrescentado à sua pontuação.
+
+Só me resta desejar-lhes boa sorte.
+
+--------------------------------------------------------------------------------
+
+Nota aos estudantes de C++:
+
+Eu sou um estudante de programação, e estudo as linguagens C e C++ desde 2009,
+ou seja, faz apenas 1 ano (apesar de que estudo programação em geral desde o
+final dos anos 90, ou seja, já fazem uns 10 anos).
+
+Portanto, estou disponibilizando os arquivos de código-fonte deste jogo afim de
+compartilhar conhecimento. Se você estuda C/C++ e quer ver como eu desenvolvi
+este jogo, me peça os fontes. O mecanismo por trás deste jogo é bem simples,
+levou 2 dias para ficar pronto, e mais um dia para dar os "retoques" finais e
+documentar o código (o código está completamente "comentado", sabe como é). Com
+certeza o meu código não é perfeito (perfeito não existe), mas dá pro gasto :P
+
+--------------------------------------------------------------------------------
+
+Se voce gostou deste jogo, por favor me envie um e-mail:
+
+	romeno19@gmail.com
+	
+	
+Se quer outros jogos como esse, visite:
+	
+	http://fernando-aires.blogspot.com/
+
+--------------------------------------------------------------------------------
+
+"Labirinto do Dragão" é (C) Março/2010 por Fernando Aires Castello
+
+Este jogo é FREEWARE e Open-Source.
+Se você pagou por este jogo, envie o nome e endereço completo do estelionatário,
+para que eu possa enviar um dragão até ele.
+
+Nota para o IBAMA:
+"Nenhum dragão foi maltratado durante a produção deste jogo."
